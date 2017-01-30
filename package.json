@@ -17,8 +17,12 @@
     "unicode"
   ],
   "devDependencies": {
-    "uglify-js": "2.6.2",
-    "phantomjs-prebuilt": "2.1.4"
+    "gulp": "^3.9.1",
+    "gulp-header": "^1.8.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.1",
+    "phantomjs-prebuilt": "2.1.4",
+    "uglify-js": "2.6.2"
   },
   "author": {
     "name": "Twitter, Inc.",
