@@ -37,6 +37,9 @@ var twemoji = (function (
       // default class name, by default 'emoji'
       className: 'emoji',
 
+      // default emoji width and height, by default 20
+      size: 20,
+
       // basic utilities / helpers to convert code points
       // to JavaScript surrogates and vice versa
       convert: {
@@ -402,6 +405,8 @@ var twemoji = (function (
             img.className = options.className;
             img.alt = alt;
             img.src = src;
+            img.width = options.size;
+            img.height = options.size;
             modified = true;
             fragment.appendChild(img);
           }
@@ -468,6 +473,12 @@ var twemoji = (function (
             '"',
             ' src="',
             src,
+            '"',
+            ' width="',
+            size,
+            '"',
+            ' height="',
+            size,
             '"'
           );
           attrib = options.attributes(icon, variant);
@@ -513,11 +524,12 @@ var twemoji = (function (
    *                  only in case the value was a number.
    *                  Returns initial value otherwise.
    */
-  function toSizeSquaredAsset(value) {
-    return typeof value === 'number' ?
-      value + 'x' + value :
-      value;
-  }
+  // function toSizeSquaredAsset(value) {
+  //   return typeof value === 'number' ?
+  //     value + 'x' + value :
+  //     value;
+  // }
+  // This function will not be used.
 
 
   /////////////////////////
@@ -549,9 +561,10 @@ var twemoji = (function (
       attributes: typeof how.attributes === 'function' ? how.attributes : returnNull,
       base:       typeof how.base === 'string' ? how.base : twemoji.base,
       ext:        how.ext || twemoji.ext,
-      path:       how.folder || toSizeSquaredAsset(how.path || twemoji.path),
+      path:       how.folder || (how.path || twemoji.path),
       className:  how.className || twemoji.className,
-      onerror:    how.onerror || twemoji.onerror
+      onerror:    how.onerror || twemoji.onerror,
+      size:      how.size || twemoji.size,
     });
   }
 
