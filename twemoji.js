@@ -25,14 +25,14 @@ var twemoji = (function (
 
       // default assets url, by default will be Twitter Inc. CDN
       base: (location.protocol === 'https:' ? 'https:' : 'http:') +
-            '//twemoji.maxcdn.com/',
+            '//noraworld.github.io/iemoji/',
 
       // default assets file extensions, by default '.png'
       ext: '.png',
 
       // default assets/folder size, by default "36x36"
       // available via Twitter CDN: 16, 36, 72
-      size: '36x36',
+      path: 'images/emoji/unicode',
 
       // default class name, by default 'emoji'
       className: 'emoji',
@@ -279,7 +279,7 @@ var twemoji = (function (
    * @return  string    the image source to use
    */
   function defaultImageSrcGenerator(icon, options) {
-    return ''.concat(options.base, options.size, '/', icon, options.ext);
+    return ''.concat(options.base, options.path, '/', icon, options.ext);
   }
 
   /**
@@ -549,7 +549,7 @@ var twemoji = (function (
       attributes: typeof how.attributes === 'function' ? how.attributes : returnNull,
       base:       typeof how.base === 'string' ? how.base : twemoji.base,
       ext:        how.ext || twemoji.ext,
-      size:       how.folder || toSizeSquaredAsset(how.size || twemoji.size),
+      path:       how.folder || toSizeSquaredAsset(how.path || twemoji.path),
       className:  how.className || twemoji.className,
       onerror:    how.onerror || twemoji.onerror
     });
