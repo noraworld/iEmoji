@@ -25,7 +25,7 @@ var twemoji = (function (
 
       // default assets url, by default will be Twitter Inc. CDN
       base: (location.protocol === 'https:' ? 'https:' : 'http:') +
-            '//noraworld.github.io/iemoji/',
+            '//noraworld.github.io/iEmoji/',
 
       // default assets file extensions, by default '.png'
       ext: '.png',
