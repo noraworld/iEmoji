@@ -9,7 +9,9 @@ gulp.task('js', function() {
       .pipe(uglify())
       .pipe(header(banner))
       .pipe(rename('./iemoji.js'))
-      .pipe(gulp.dest('./docs'));
+      .pipe(gulp.dest('./docs'))
+      .pipe(rename('./twemoji.min.js'))
+      .pipe(gulp.dest('.'));
 });
 
 gulp.task('default', ['js']);
